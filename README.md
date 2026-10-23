@@ -88,13 +88,12 @@ A Calendar table provides Year, Quarter, Month and Year-Month fields for time an
 
 ## Key insights
 
-- Top products by sales: `[product names]`
-- Bottom products by sales: `[product names]`
-- Best-performing month or quarter: `[period and figure]`
-- Highest-selling city: `[city and figure]`
-- Discount impact: `[what you noticed, e.g. which promotion has the highest average discount]`
-- Sales vs profit: `[what the scatter plot shows]`
-
+- Top products by sales: `[Apple Iphone 14, Apple MackBook Air, Sony Bravia 55" TV, Samsung Galaxy S21, HP Pavilion Laptop]`
+- Bottom products by sales: `[Tupperware Lunchbox, L'Oreal Shampoo, Nivea Body Lotion, Dove Soap, Pack, Colgate Toothpaste]`
+- Best-performing month or quarter: `[September 2023 Q3]`
+- Highest-selling city: `[Bhopal, 16.2M]`
+- Discount impact: `[Weekend Flash Sale has the highest discount]`
+  
 ## Tools used
 
 Power BI Desktop, Power Query, DAX and Microsoft Excel.
