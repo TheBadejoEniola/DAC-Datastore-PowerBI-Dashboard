@@ -49,6 +49,7 @@ The Excel workbook (`Store_Data.xlsx`) contains four tables arranged as a star s
 
 ## Data preparation (Power Query)
 
+- Generated Order ID: The source dataset did not contain an order ID, so an index column was added in Power Query to identify each transaction row. Each row is counted as one order for this analysis; the generated ID does not establish whether multiple rows originally belonged to the same customer order.
 - Renamed the sales sheet to `Fact table` and added an `Order ID` index column.
 - Set `Customer ID`, `Product ID` and `Promotion ID` to Text so relationships match.
 - Renamed `Price (INR)` to `Price Per Unit`.
@@ -59,7 +60,7 @@ The Excel workbook (`Store_Data.xlsx`) contains four tables arranged as a star s
   - `Discount Value` = Total Sales × percentage ÷ 100
   - `Net Sales` = Total Sales − Discount Value
   - `Profit` = 10% of Net Sales
-- Handled null values for orders placed without a promotion so Net Sales equals Total Sales for those rows.
+- Transactions without a promotion are assigned a 0% discount.
 
 ## Data model
 
@@ -88,11 +89,11 @@ A Calendar table provides Year, Quarter, Month and Year-Month fields for time an
 
 ## Key insights
 
-- Top products by sales: `[Apple Iphone 14, Apple MackBook Air, Sony Bravia 55" TV, Samsung Galaxy S21, HP Pavilion Laptop]`
+- Top products by sales: `[Apple iPhone 14, Apple MacBook Air, Sony Bravia 55" TV, Samsung Galaxy S21 and HP Pavilion Laptop.]`
 - Bottom products by sales: `[Tupperware Lunchbox, L'Oreal Shampoo, Nivea Body Lotion, Dove Soap, Pack, Colgate Toothpaste]`
-- Best-performing month or quarter: `[September 2023 Q3]`
-- Highest-selling city: `[Bhopal, 16.2M]`
-- Discount impact: `[Weekend Flash Sale has the highest discount]`
+- Best-performing month or quarter: `[September 2023 (Q3), subject to confirmation that this month recorded the highest sales.]`
+- Highest-selling city: `[Bhopal, with sales of approximately ₹16.2 million.]`
+- Discount impact: `[Weekend Flash Sale recorded the highest average discount.]`
   
 ## Tools used
 
