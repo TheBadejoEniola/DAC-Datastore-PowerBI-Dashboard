@@ -101,13 +101,12 @@ Power BI Desktop, Power Query, DAX and Microsoft Excel.
 
 ## Repository contents
 
-```
-- [Power BI File](DAC_Datastore_Dashboard.pbix)
-- [Datase](Store_Data.xlsx)
-- [Page1](sales-overview.png)
-- [Page2](product-performance.png)
-- [Page3](order-details.png)
-- README.md
+* [Power BI File](DAC_Datastore_Dashboard.pbix)
+* [Dataset](Store_Data.xlsx)
+* [Page1](sales-overview.png)
+* [Page2](product-performance.png)
+* [Page3](order-details.png)
+* README.md
 
 
 ## How to use
