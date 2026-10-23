@@ -24,7 +24,7 @@ The store sells products across eight categories: Electronics, Footwear, Clothin
 ### 1. Sales Overview
 Headline cards (total orders, total sales, net sales, total profit and average discount), a drill-down line chart that moves from year to quarter, month and day, a map of sales by city, a sales vs profit scatter plot with a trend line, and a chart of average discount by promotion.
 
-![Sales Overview](screenshots/sales-overview.png)
+![Sales Overview](sales-overview.png)
 
 ### 2. Product Performance
 Six bar charts showing the top 5 and bottom 5 products by sales, profit and units sold. A period comparison section uses two slicers (Period A and Period B) to compare sales, profit and quantity between any two months, with variance and variance percentage.
