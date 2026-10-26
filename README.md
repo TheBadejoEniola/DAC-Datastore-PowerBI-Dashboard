@@ -6,6 +6,16 @@ An interactive three-page Power BI dashboard built for D.A.C Datastore, an offli
 
 The store sells products across eight categories: Electronics, Footwear, Clothing, Home Appliances, Accessories, Kitchenware, Bags and Personal Care. Management needed one report to monitor sales performance, compare time periods and look up individual orders. This project covers the full workflow: cleaning and shaping the data in Power Query, building a star-schema data model, writing calculations and DAX measures, and designing the dashboard.
 
+## Headline results
+
+| Measure | Value |
+|---|---|
+| Total orders | 3,510 |
+| Total sales | ₹129.5M |
+| Total discounts given | ₹7.19M (5.5% of sales) |
+| Net sales | ₹122.3M |
+| Profit (assumed 10% of net sales) | ₹12.2M |
+
 ## Business questions answered
 
 | # | Question | Where to find it |
@@ -22,12 +32,12 @@ The store sells products across eight categories: Electronics, Footwear, Clothin
 ## Dashboard pages
 
 ### 1. Sales Overview
-Headline cards (total orders, total sales, net sales, total profit and average discount), a drill-down line chart that moves from year to quarter, month and day, a map of sales by city, a sales vs profit scatter plot with a trend line, and a chart of average discount by promotion.
+Headline cards (total orders, total sales, net sales, total profit and average discount), a drill-down line chart that moves from year to quarter, month and day, a bar chart of total sales by city, a sales vs profit scatter plot, and a chart of average discount by promotion.
 
 ![Sales Overview](sales-overview.png)
 
 ### 2. Product Performance
-Six bar charts showing the top 5 and bottom 5 products by sales, profit and units sold. A period comparison section uses two slicers (Period A and Period B) to compare sales, profit and quantity between any two months, with variance and variance percentage.
+Six bar charts showing the top 5 and bottom 5 products by sales, profit and units sold, plus monthly trend charts for sales, profit and quantity. A period comparison section uses two slicers (Period A and Period B) to compare sales between any two months, with variance percentage.
 
 ![Product Performance](product-performance.png)
 
@@ -75,26 +85,27 @@ A Calendar table provides Year, Quarter, Month and Year-Month fields for time an
 
 ## DAX measures
 
-- Total Sales, Net Sales, Total Profit, Total Quantity, Total Orders, Average Discount
-- Period comparison using `CALCULATE` and `TREATAS` with two disconnected period tables:
-  - Sales A / Sales B, Profit A / Profit B, Quantity A / Quantity B
-  - Variance and Variance % for each metric
+- Total Sales, Net Sales, Total Profit, Total Quantity, Total Orders
+- Avg Discount % = total discount value ÷ total sales (5.5% overall), so it reflects every order, not just the five promotions
+- Period comparison using `CALCULATE` and `TREATAS` with two disconnected period tables: Sales A / Sales B, with variance and variance %
 
 ## Assumptions
 
-- **Profit** is calculated as 10% of Net Sales, because the dataset has no cost column.
+- **Profit** is calculated as 10% of Net Sales, because the dataset has no cost column. Because of this, sales and profit move in a perfectly straight line on the scatter plot.
 - **Buy 1 Get 1 Free** is treated as a 50% effective discount.
 - Orders with no promotion are treated as having a 0% discount.
 - Each row in the fact table is counted as one order, because the dataset has no order ID.
 
 ## Key insights
 
-- Top products by sales: `[Apple iPhone 14, Apple MacBook Air, Sony Bravia 55" TV, Samsung Galaxy S21 and HP Pavilion Laptop.]`
-- Bottom products by sales: `[Tupperware Lunchbox, L'Oreal Shampoo, Nivea Body Lotion, Dove Soap, Pack, Colgate Toothpaste]`
-- Best-performing month or quarter: `[September 2023 (Q3), subject to confirmation that this month recorded the highest sales.]`
-- Highest-selling city: `[Bhopal, with sales of approximately ₹16.2 million.]`
-- Discount impact: `[Weekend Flash Sale recorded the highest average discount.]`
-  
+- **Electronics drives the store.** Electronics made ₹95.4M of the ₹129.5M total sales (73.7%). Personal Care made only ₹0.37M (0.3%).
+- **Top products by sales:** Apple iPhone 14 (₹22M, the largest single product at 17% of all sales), Apple MacBook Air (₹21M), Sony Bravia 55" TV (₹21M), Samsung Galaxy S21 (₹16M) and HP Pavilion Laptop (₹15M).
+- **Bottom products by sales:** Colgate Toothpaste (₹0.02M), Dove Soap Pack (₹0.09M), Nivea Body Lotion (₹0.09M), L'Oreal Shampoo (₹0.17M) and Tupperware Lunch Box (₹0.28M).
+- **Sales trend:** yearly sales fell from ₹33.2M in 2020 to ₹31.2M in 2021 and ₹29.7M in 2022, then recovered to ₹35.3M in 2023 (+18.8%). September 2023 was the best month at ₹4.3M. (2024 holds only one day of data.)
+- **Highest-selling city:** Bhopal with ₹16.2M (12.5% of sales), followed by Kanpur (₹15.0M) and Indore (₹14.0M).
+- **Discount impact:** only 720 of the 3,510 orders (20.5%) used a promotion, costing ₹7.19M in discounts (5.5% of sales). The Clearance Sale has the highest discount (70%) but produced only ₹1.5M in sales from 59 orders, giving away ₹1.05M of it. The Summer Sale (20% off) produced ₹21.3M from 574 orders.
+- **Recommendation:** favour moderate offers like the Summer Sale over 50% to 70% discounts, especially on Electronics.
+
 ## Tools used
 
 Power BI Desktop, Power Query, DAX and Microsoft Excel.
@@ -107,13 +118,4 @@ Power BI Desktop, Power Query, DAX and Microsoft Excel.
 * [Page2](product-performance.png)
 * [Page3](order-details.png)
 * README.md
-
-
-## How to use
-
-1. Download `DAC_Datastore_Dashboard.pbix`.
-2. Open it in Power BI Desktop.
-3. Use the slicers on each page to filter the data.
-
-
 
